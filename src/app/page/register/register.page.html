@@ -1,0 +1,72 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>
+      Sign Up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="auth-box">
+    <div class="title-header">
+      <img src="assets/avatar.svg" alt="">
+    </div>
+
+    <form [formGroup]="credentialForm" >
+
+      <ion-item class="form-control ion-no-padding">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          placeholder="Email address"
+          formControlName="email"
+          autofocus="true"
+          clearInput="true"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">Email is required</span>
+        <span *ngIf="email.errors?.email">Email is invalid</span>
+      </div>
+      
+      <ion-item class="form-control ion-no-padding">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+          clearInput="true"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+      </div>
+
+      <ion-item class="form-control ion-no-padding">
+        <ion-label position="floating">Nickname</ion-label>
+        <ion-input
+          placeholder="Nickname"
+          type="text"
+          formControlName="nickname"
+          clearInput="true"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="(nickname.dirty || nickname.touched) && nickname.errors" class="errors">
+        <span *ngIf="nickname.errors?.required">Nickname is required</span>
+        <span *ngIf="nickname.errors?.minlength">Nickname needs to be 2 characters</span>
+      </div>
+
+      <ion-button fill="clear" expand="block" class="btn-link-light mb15 mt30" [routerLink]="['/en-login']">Login</ion-button>
+
+      <ion-button expand="block" color="primary" class="mb15" mode="md" (click)="createdUser()" *ngIf="!btnHide">Sign Up</ion-button>
+      <p *ngIf="btnHide">Please wait...</p>
+
+    </form>
+  </div>
+
+
+</ion-content>

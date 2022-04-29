@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="659" height="352" viewBox="0 0 659 352">
+  <g id="Group_2" data-name="Group 2" transform="translate(-170 -513)">
+    <g id="Group_1" data-name="Group 1">
+      <g id="people-sharp_1_" data-name="people-sharp (1)" transform="translate(333 433)">
+        <circle id="Ellipse_1" data-name="Ellipse 1" cx="72" cy="72" r="72" transform="translate(80 112)" fill="#fff"/>
+        <path id="Path_1" data-name="Path 1" d="M234,296c-28.16-14.3-59.24-20-82-20-44.58,0-136,27.34-136,82v42H166V383.93c0-19,8-38.05,22-53.93C199.17,317.32,214.81,305.55,234,296Z" fill="#fff"/>
+        <path id="Path_2" data-name="Path 2" d="M340,288c-52.07,0-156,32.16-156,96v48H496V384C496,320.16,392.07,288,340,288Z" fill="#fff"/>
+        <circle id="Ellipse_2" data-name="Ellipse 2" cx="88" cy="88" r="88" transform="translate(252 80)" fill="#fff"/>
+      </g>
+      <line id="Line_1" data-name="Line 1" y2="203" transform="translate(267.5 550.5)" fill="none" stroke="#fff" stroke-width="26"/>
+      <line id="Line_2" data-name="Line 2" x1="195" transform="translate(170 652)" fill="none" stroke="#fff" stroke-width="26"/>
+    </g>
+  </g>
+</svg>

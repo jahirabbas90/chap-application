@@ -1,0 +1,63 @@
+.errors {
+    font-size: small;
+    color: rgb(204, 86, 86);
+    // background: var(--ion-color-danger);
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.auth-box{
+  padding: 2em;
+  .title-header{
+      padding: 2em 0;
+      text-align: center;
+  }
+}
+.item-native{
+  padding-inline-start: initial;
+}
+.mb15{
+  margin-bottom: 15px;
+}
+.mt30{
+  margin-top: 30px;
+}
+.mb30{
+  margin-bottom: 30px;
+}
+ion-input {
+  --padding-end: 0px;
+}
+.input-note {
+  color: red;
+  font-size: 0.8em;
+}
+.color-bg{
+  --ion-background-color: #59EEE4;
+}
+.btn-pink-color{
+    button {
+        background: transparent;
+    }
+}
+
+
+.btn-pink-color {
+    --background: var(--ion-color-btn);
+    color: #fff;
+}
+
+.content-area {
+    padding: 1rem;
+    .login-img {
+        max-width: 70%;
+        margin-top: 10%;
+    }
+    h2 {
+        margin-bottom:0.4em;
+    }
+    p {
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+}

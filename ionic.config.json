@@ -1,0 +1,7 @@
+{
+  "name": "enduraChat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,40 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/en-all-rooms"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Group</ion-title>
+    <!-- <ion-toolbar>
+      <ion-searchbar></ion-searchbar>
+    </ion-toolbar> -->
+    
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar showcancelbutton=""
+    (ionInput)="filterList($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="" *ngIf="groupChat">
+    <ion-item>
+      <ion-input placeholder="Group Name"  type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+    <ion-list-header>All Users</ion-list-header>
+  </div>
+  <ion-list class="body-spacing">
+    <ion-item class="ion-no-padding" *ngFor="let u of _visibleUsr; let c_i = index">
+      <ion-label><h3>{{u.name}}</h3></ion-label>
+      <ion-icon name="radio-button-off" *ngIf="!u.checked"  (click)="updateSelected(c_i)"></ion-icon>
+      <ion-icon name="radio-button-on" *ngIf="u.checked"  (click)="updateSelected(c_i)"></ion-icon>
+    </ion-item>
+    
+  </ion-list>
+  <!-- <ion-button expand="block" color="primary" class="mb15" mode="md" [disabled]="users.length == 0"   (click)="createGroup()">Create </ion-button> -->
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" class="btn-rounded" (click)="createGroupChat()" [disabled]="title.trim() === ''">Create Group</ion-button>
+  </ion-toolbar>
+</ion-footer>

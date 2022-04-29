@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/en-all-rooms"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ chat?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button color="danger" fill="clear" (click)="leave()">
+        Leave Chat
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="chat-row" *ngIf="_messages && _messages.length > 20">
+    <div class="load-previous">
+      <span>See Previous Chats</span>
+    </div>
+  </div> -->
+  <div class="chat-row" *ngFor="let message of messages | async">
+    <div class="chat-bubble-outer" [ngClass]="{'chat-bubble__right': message.from === _currentUser }" >
+      <div class="chat-bubble" *ngIf="!message.delete">
+        <div class="name-area">
+          <h5>{{ message.user }}</h5>
+          <div class="delete-area">
+            <ion-icon name="close" (click)="showPop(message.id)"></ion-icon>
+          </div>
+        </div>
+
+        <!-- <h4>{{ message.user }} <span (click)="showPop(message.id)"><ion-icon name="trash"></ion-icon></span></h4> -->
+        <a href="{{ message.image }}" target="_blank" *ngIf="message.messageType == 'image'">
+          <img src="{{ message.image }}" alt="">
+        </a>        
+        <span *ngIf="message.messageType == 'others'">
+          {{ message.file_name.substring(0,16) }}..
+          <a href="{{ message.image }}" target="_blank" style="color: #fff;"><ion-icon name="download"></ion-icon></a>
+        </span>
+        <span *ngIf="message.messageType == 'text'">{{ message.msg }}</span>
+        <div class="date-time">{{ message.createdAt | heading }}</div>
+      </div>
+      <div class="chat-bubble-deleted" *ngIf="message.delete">
+        <p>Message deleted</p>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+      <div class="chat-textarea-outer">
+        <div class="attachment">
+          <div class="clear-button" (click)="atchFile()">
+            <ion-icon name="attach-sharp"></ion-icon>
+          </div>
+        </div>
+        <div class="msg-textarea">
+          <textarea autosize [(ngModel)]="newMsg" name="newMsg"></textarea>
+        </div>
+        <div class="send-button-outer">
+
+          <div class="send-button ion-activatable ripple-parent" *ngIf="newMsg != ''" (click)="sendMessage()">
+            <ion-icon name="send-sharp"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+
+          <div class="send-button ion-activatable ripple-parent" *ngIf="newMsg === ''">
+            <ion-icon name="send-sharp"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+
+        </div>
+      </div>
+  </ion-toolbar>
+</ion-footer>

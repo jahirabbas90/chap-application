@@ -1,0 +1,90 @@
+ 
+<!-- <ion-content class="color-bg">
+
+  <div class="auth-box">
+    <div class="title-header">
+      <img src="assets/login-bg.svg" alt="">
+    </div>
+    <h2 class="text-center">Login to Continue</h2>
+    <form [formGroup]="credentialForm">
+      <ion-item>
+        <ion-input
+          placeholder="Email address"
+          formControlName="email"
+          autofocus="true"
+          clearInput="true"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">Email is required</span>
+        <span *ngIf="email.errors?.email">Email is invalid</span>
+      </div>
+  
+      <ion-item>
+        <ion-input
+        placeholder="Password"
+        type="password"
+        formControlName="password"
+        clearInput="true"
+      ></ion-input>
+      </ion-item>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+      </div>
+
+      <ion-button expand="block" color="primary" class="mb15" mode="md" (click)="signIn()">Login</ion-button>
+
+      
+      <ion-button fill="clear" expand="block" class="btn-link-dark mb30 " (click)="confirmPasscode()">Sign Up</ion-button>
+    </form>
+  </div>
+ </ion-content> -->
+
+<ion-content>
+
+  <div class="content-area">
+    <img src="assets/login-img.svg" alt="" class="login-img">
+    <h2>Login to Continue</h2>
+    <p>Provide your email address/phone and password to continue</p>
+  </div>
+
+  <div class="content-area">
+
+    <form [formGroup]="credentialForm">
+      <ion-item>
+        <ion-label position="floating">Email/Phone</ion-label>
+        <ion-input formControlName="email" autofocus="true" clearInput="true">
+        </ion-input>
+      </ion-item>
+      <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+        <span *ngIf="email.errors?.required">Email is required</span>
+        <span *ngIf="email.errors?.email">Email is invalid</span>
+      </div>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input placeholder="Password" type="password" formControlName="password" clearInput="true"></ion-input>
+      </ion-item>
+      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+      </div>
+    
+      <div class="content-area">
+        <!-- <ion-button expand="block" color="primary" (click)="signIn()">Login to Continue</ion-button> -->
+        <ion-button expand="block" color="primary" (click)="checkLogin()">Login to Continue</ion-button>
+      </div>
+    
+      <!-- <div class="content-area">
+        <ion-button fill="clear" expand="block"  routerLink="/en-register">New User? Register Here
+        </ion-button>
+      </div> -->
+    
+    </form>
+    
+  </div>
+
+
+
+</ion-content>

@@ -1,0 +1,325 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{userName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+
+  <div class="chat-row">
+    <div class="load-previous">
+      <span>See Previous Chats</span>
+    </div>
+  </div>
+
+  <ion-grid>
+    <ion-row *ngFor="let message of messages | async">
+      <ion-col size="9" class="message" [offset]="message.myMsg ? 3 : 0"
+        [ngClass]="{ 'my-message': message.myMsg, 'other-message': !message.myMsg }">
+        <b>{{ message.fromName }}</b><br>
+        <span>{{ message.msg }}
+        </span>
+        <div class="time ion-text-right"><br>{{ message.createdAt?.toMillis() | date:'short' }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </ion-content> -->
+
+ <!--  <ion-content>
+    <div *ngFor="let chat of chats">
+
+      <div class="chat-row" *ngIf="chat.uid !=uid">
+        <div class="chat-bubble-outer chat-bubble__right">
+          <div class="chat-bubble">
+            <div class="name-area">
+              <h5>You</h5>
+              <div class="delete-area">
+              </div>
+            </div>
+            {{chat.msg}}
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-bubble-outer"  *ngIf="chat.uid ==uid">
+        <div class="chat-bubble">
+          <div class="name-area">
+            <h5>{{chat.name}}</h5>
+            <div class="delete-area">
+            </div>
+          </div>
+          {{chat.msg}}
+        </div>
+      </div>
+      </div>
+      </ion-content> -->
+
+      <!-- Original Start Here -->
+      <ion-content>
+        <div *ngFor="let chat of chats ">
+          <div class="chat-row" *ngIf="chat.uid !=uid">
+            <div class="chat-bubble-outer">
+              <div class="chat-bubble">
+                <div class="name-area">
+                  <h5>{{userName}}</h5>
+                </div>
+                {{chat.msg}}
+                <div>
+                  <a href="{{chat.image}}" target="_blank" *ngIf="chat.messageType == 'image'">
+                    <img src="{{chat.image}}" alt="">
+                  </a>
+                </div>
+                <div class="date-time">
+                  {{ chat.createAt}}
+                </div>
+                <!-- <ng-container *ngIf="'lastMsg' as variable">
+                      {{variable}}
+                    </ng-container> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-row" *ngIf="chat.uid ==uid">
+            <div class="chat-bubble-outer chat-bubble__right">
+              <div class="chat-bubble">
+                <div class="name-area">
+                  <h5>You</h5>
+                </div>
+                <div>
+                <a href="{{chat.image}}" target="_blank" *ngIf="chat.messageType == 'image'">
+                  <img src="{{chat.image}}" alt="">
+                </a>
+                </div>
+                {{chat.msg}}
+                <div class="date-time">
+                  {{ chat.createAt}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+      <!-- Original End Here -->
+
+      
+
+      <!-- <ion-item lines="none" *ngIf="chat.uid !=uid">
+        <ion-label class="chat-bubble-outer chat-bubble__right">
+          <p>You</p>
+            <h2>
+              <b>
+                {{chat.msg}}
+              </b>
+            </h2>
+        </ion-label>
+      </ion-item> -->
+
+<!--       <ion-item lines="none" *ngIf="chat.uid ==uid">
+        <ion-label class="chat-bubble-outer">
+          <p>{{chat.name}}</p>
+          <h2>
+            <b>
+              {{chat.msg}}
+            </b>
+          </h2>
+          
+        </ion-label>
+      </ion-item> -->
+    
+<!-- <ion-content>
+  <div *ngFor="let chat of chats">
+    Other's Chat
+    <ion-item= *ngIf="cha.uid!=uid" lines="none" (click)="openFile(chat.msg)">
+      <ion-label class="in-text-left">
+        <p>
+          {{userName}}
+        </p>
+        <h2>{{chat.msg}}</h2>
+      </ion-label>
+      <ion-icon *ngIf="caht.fileType" slot="start" name="{{getIcon(chat.fileType)}}"
+      color="{{getIconColor(chat.fileType)}}"></ion-icon>
+    </ion-item>
+  My Chat
+  <ion-item *ngIf="cha.uid==uid" lines="none" (click)="openFile(chat.msg)">
+    <ion-label class="in-text-right" *ngIf="!chat.isUploading">
+      <p>
+        You
+      </p>
+      <h2>{{chat.msg}}</h2>
+    </ion-label>
+    <ion-icon *ngIf="caht.fileType" slot="start" name="{{getIcon(chat.fileType)}}"
+     color="{{getIconColor(chat.fileType)}}">
+    </ion-icon>
+    <round-progress *ngIf="chat.isUploading" slot="end" [current]="chat.progress" [animation]="'easeInOutQuart'"
+    [animationDelay]="10" [radious]="15" [stroke]="3" [color]="'#3171e0'" [max]="100">
+  </round-progress>
+  </ion-item>
+  </div>
+</ion-content> -->
+
+<ion-footer>
+    <ion-toolbar color="light">
+      <div class="chat-textarea-outer">
+        <div class="attachment">
+          <div class="clear-button ion-activatable ripple-parent">
+            <ion-ripple-effect></ion-ripple-effect>
+            <ion-icon name="attach-sharp" (click)="atchFile()"></ion-icon>
+          </div>
+        </div>
+        <div class="msg-textarea">
+          <ion-textarea autoGrow="true" class="message-input" rows="1" maxLength="500" [(ngModel)]="newMsg">
+          </ion-textarea>
+        </div>
+        <div class="send-button-outer">
+          <div class="send-button ion-activatable ripple-parent">
+            <ion-icon name="send-sharp"  (click)="sendMessage()"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+  <!-- <ion-footer>
+    <input type="file" id="file" style="display :none" (change)="detectFiles()" multiple>
+    <ion-item>
+      <ion-input [(ngModel)]="newMsg" placeholder="Type..." id="message"></ion-input>
+      <ion-button fill="clear" slot="end" (click)="triggerFile()">
+        <ion-icon slot="icon-only" name="document-attach-outline">
+        </ion-icon>
+      </ion-button>
+
+      <ion-button  fill="clear" slot="end" (click)="sendMessage()">
+        <ion-icon slot="icon-only" name="send-outline">
+        </ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-footer> -->
+
+
+  <!-- Lattest Code -->
+  <!-- <ion-footer>
+    <ion-toolbar color="light">
+      <div class="chat-textarea-outer">
+        <div class="attachment">
+          <div class="clear-button ion-activatable ripple-parent">
+            <ion-ripple-effect></ion-ripple-effect>
+            <ion-icon name="attach-sharp" (click)="atchFile()"></ion-icon>
+          </div>
+          <div class="clear-button" (click)="atchFile()">
+            <ion-icon name="attach-sharp"></ion-icon>
+          </div>
+        </div>
+        <div class="msg-textarea">
+          <textarea autosize [(ngModel)]="newMsg" name="newMsg"></textarea>
+        </div>
+        <div class="msg-textarea">
+          <ion-textarea autoGrow="true" class="message-input" rows="1" maxLength="500" [(ngModel)]="newMsg">
+          </ion-textarea>
+        </div>
+        <div class="send-button-outer">
+          <div class="send-button ion-activatable ripple-parent">
+            <ion-icon name="send-sharp"  (click)="sendMessage()"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer> -->
+  <!-- Lattest code end here -->
+  
+
+
+  <!-- <div class="chat-row">
+    <div class="chat-bubble-outer">
+      <div class="chat-bubble">
+        <div class="name-area">
+          <h5>Jessica</h5>
+          <div class="delete-area">
+            <ion-icon name="close"></ion-icon>
+          </div>
+        </div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem ducimus qui porro nesciunt eum deleniti
+        maiores earum, adipisci nemo expedita eligendi eaque illo. Modi commodi ipsa esse alias, deleniti vero?
+        <div class="date-time">3 mins ago</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-row">
+    <div class="chat-bubble-outer chat-bubble__right">
+      <div class="chat-bubble">
+        <div class="name-area">
+          <h5>Jessica</h5>
+          <div class="delete-area">
+            <ion-icon name="close"></ion-icon>
+          </div>
+        </div>
+        Hi
+        <div class="date-time">3 mins ago</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="chat-row" *ngFor="let message of messages | async">
+    <div class="chat-bubble-outer" [ngClass]="{'chat-bubble__right': message.from === _currentUser }">
+      <div class="chat-bubble" *ngIf="!message.delete">
+        <h4>{{ message.user }} <span (click)="showPop(message.id)">
+            <ion-icon name="trash"></ion-icon>
+          </span></h4>
+        <a href="{{ message.image }}" target="_blank" *ngIf="message.messageType == 'image'">
+          <img src="{{ message.image }}" alt="">
+        </a>
+        <span *ngIf="message.messageType == 'others'">
+          {{ message.file_name.substring(0,16) }}..
+          <a href="{{ message.image }}" target="_blank" style="color: #fff;">
+            <ion-icon name="download"></ion-icon>
+          </a>
+        </span>
+        <span *ngIf="message.messageType == 'text'">{{ message.msg }}</span>
+        <div class="date-time">{{ message.createdAt | heading }}</div>
+      </div>
+      <div class="chat-bubble-deleted" *ngIf="message.delete">
+        <p>Message deleted</p>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+<!-- <ion-footer>
+  <ion-toolbar color="light">
+    <div class="chat-textarea-outer">
+      <div class="attachment">
+        <div class="clear-button" (click)="atchFile()">
+          <ion-icon name="attach-sharp"></ion-icon>
+        </div>
+      </div>
+      <div class="msg-textarea">
+        <textarea autosize [(ngModel)]="newMsg" name="newMsg"></textarea>
+      </div>
+      <div class="send-button-outer">
+
+        <div class="send-button ion-activatable ripple-parent" *ngIf="newMsg != ''" (click)="sendMessage()">
+          <ion-icon name="send-sharp"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+
+        <div class="send-button ion-activatable ripple-parent" *ngIf="newMsg === ''">
+          <ion-icon name="send-sharp"></ion-icon>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer> -->

@@ -1,0 +1,34 @@
+.errors {
+  font-size: small;
+  color: rgb(192, 72, 72);
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.auth-box{
+  padding: 2em;
+  .title-header{
+      padding: 2em 0;
+      text-align: center;
+  }
+}
+.item-native{
+  padding-inline-start: initial;
+}
+.mb15{
+  margin-bottom: 15px;
+}
+.mt30{
+  margin-top: 30px;
+}
+.mb30{
+  margin-bottom: 30px;
+}
+ion-input {
+  --padding-end: 0px;
+}
+.input-note {
+  color: red;
+  font-size: 0.8em;
+}

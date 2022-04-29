@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "872991429175",
+    "project_id": "chatapp-d3458",
+    "storage_bucket": "chatapp-d3458.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872991429175:android:07e57437bcf008f89325b2",
+        "android_client_info": {
+          "package_name": "com.com.tomjerry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872991429175-m57tspdlpoph06fds2v3bq51ion63rhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.com.tomjerry",
+            "certificate_hash": "f97c0a40cc2e20bc7b658f89fa6bb0b14c88337e"
+          }
+        },
+        {
+          "client_id": "872991429175-ljpbmolsdru3fh0k6lnhjs3gvd6ef2f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaiELJRg6fOYREMsEOLvA7NDN6NFlk_DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872991429175-ljpbmolsdru3fh0k6lnhjs3gvd6ef2f3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872991429175-3bgthsk1shtrnpq7m9ehseduab22hhlq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.com.tomejerry"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

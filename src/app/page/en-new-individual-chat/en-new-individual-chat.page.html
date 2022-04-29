@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/en-all-rooms">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>New Chat</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar showcancelbutton=""
+    (ionInput)="filterList($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-item button (click)="viewNewGroup()">
+      <ion-icon slot="start" name="people"></ion-icon>
+      <ion-label>New Group</ion-label>
+    </ion-item>
+    <!-- <ion-item button *ngFor="let u of checkedUser; let c_i = index"  (click)="findId(u.id)" [routerLink]="['/', 'single-user-chat',u.nickname,u.id]">
+      <ion-avatar slot="start">
+        <img src="https://via.placeholder.com/200x200">
+      </ion-avatar>
+      <ion-label >
+        <h3>{{u.nickname}}</h3>
+        <p>Test Message</p>
+      </ion-label>
+    </ion-item> -->
+    <ion-item button *ngFor="let u of _visibleUsr" (click)="startNewChat(u)"  >
+      <ion-avatar slot="start">
+        <img src="assets/avatar.svg">
+      </ion-avatar>
+      <ion-label >
+        <h3>{{u.name}}</h3>
+        <!-- <p>Test Message</p> -->
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

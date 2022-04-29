@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>    
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Add New Group
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content [fullscreen]="true">
+  <form class="body-spacing">
+    <ion-item class="form-control ion-no-padding">
+      <ion-label position="floating">Group Name</ion-label>
+      <ion-input type="text" [(ngModel)]="group_name" name="group_name"></ion-input>
+    </ion-item>
+  </form>
+  <div class="body-spacing">
+    <ion-chip class="list-spacing" *ngFor="let u of selected;">
+      <ion-label>{{u}}</ion-label>
+      <ion-icon name="close-circle" (click)="updateSelected(u, 'userName')"></ion-icon>
+    </ion-chip>
+    
+  </div>
+  <ion-button expand="block" color="primary" class="mb15" mode="md" (click)="createGroup()">Create Group</ion-button>
+</ion-content>

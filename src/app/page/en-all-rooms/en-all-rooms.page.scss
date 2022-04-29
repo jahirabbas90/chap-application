@@ -1,0 +1,15 @@
+ion-list {
+  padding: 0;
+}
+ion-badge {
+  border-radius: 10px;
+}
+ion-toolbar {
+  border-bottom-width: 0;
+}
+
+ion-button[shape=circle] {
+  --border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}

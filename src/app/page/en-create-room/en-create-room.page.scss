@@ -1,0 +1,66 @@
+ion-list {
+  padding: 0;
+}
+.contacts-list-all {
+  .seperator {
+    background-color: #e1e1e1;
+    padding: 0.5em 0.8em;
+    font-weight: 600;
+  }
+  .contact-list {
+    padding: 0.6em 0.6em;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    h4 {
+      padding: 0;
+      margin: 0;
+      font-weight: 400;
+      font-size: 1em;
+      margin-bottom: 0.1em;
+    }
+    p {
+      padding: 0;
+      margin: 0;
+      color: #c0c0c0;
+      font-size: 0.7em;
+    }
+  }
+}
+.group-create {
+  max-width: 2.2em;
+}
+.ios {
+  .group-create {
+    max-width: 2em;
+  }
+}
+.avatar {
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  margin-right: 0.6em;
+}
+
+.page-padding{
+  padding: 0.5em;
+  .check-width{
+      width: 1.2em;
+      height: 1.2em;
+  }
+}
+
+.body-spacing{
+  padding: 0 1em;
+  .list-spacing{
+      margin-left:0 ;
+  }
+}
+
+ion-footer {
+    ion-toolbar {
+        padding: 0.1em 0.5em;
+    }
+}
